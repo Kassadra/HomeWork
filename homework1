@@ -2,7 +2,6 @@
 #include <stdio.h>   
 void clrscr(void)
 {
-	char a[80];
 	printf("\033[2J");
 	printf("\033[0;0f");
 }
