@@ -2,25 +2,33 @@
 #include <stdio.h>   
 void clrscr(void)
 {
-	char a[80]; printf("\033[2J"); /* Clear the entire screen. */
-	printf("\033[0;0f"); /* Move cursor to the top left hand corner */
+	char a[80];
+	printf("\033[2J");
+	printf("\033[0;0f");
 }
 
 int main() 
 {
+	clrscr();
 	int k1, k2, k3;
 	float MM, NN, v, u, w;
 	printf("k1="); scanf("%d",&k1);
+	printf("\033[31m");
 	printf("k2="); scanf("%d",&k2);
+	printf("\033[32m");
 	printf("k3="); scanf("%d",&k3);
+	printf("\033[33m");
 	printf("m="); scanf("%f",&MM);
+	printf("\033[34m");
 	printf("n="); scanf("%f",&NN);
+	printf("\033[35m");
 	clrscr();
 	if (k3+k2 != 0)
 	{
 		if (k2 != 0)
 		{
 			w=6/7 + k1/(k2+k3) + (MM + NN)/k2;
+			printf("\033[36m");
 			printf("w=%f\n",w);
 		}
 		else
