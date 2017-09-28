@@ -1,0 +1,48 @@
+/* Вариант 21 */ 
+#include <stdio.h> 
+#include <stdlib.h>   
+void clrscr(void)
+{
+	char a[80]; printf("\033[2J");
+	printf("\033[0;0f"); 
+}
+
+int main() 
+{
+	int k1, k2, k3;
+	float MM, NN, v, u, w;
+	printf("k1="); scanf("%d",&k1);
+	printf("k2="); scanf("%d",&k2);
+	printf("k3="); scanf("%d",&k3);
+	printf("m="); scanf("%f",&MM);
+	printf("n="); scanf("%f",&NN);
+	system("cls");
+	if (k3+k2 != 0)
+	{
+		if (k2 != 0)
+			w=6/7 + k1/(k2+k3) + (MM + NN)/k2;
+		else
+			printf("infinite error in W\n");
+	}
+	else
+		printf("infinite error in W\n");
+	if (k3 != 0)
+	{
+		if (MM + k2/k3 != 0)
+			u=(10e-2 + 1/k3)/10e2 + (MM + k1/k3)/(MM + k2/k3);
+		else printf("infinite error in U");
+	}
+	else
+		printf("infinite error in U");
+	if (k3 != -13)
+	{
+		if (k3 != -20)
+			v=(((13-k1)/(13+k3))-((10e-7 +k1)/(20 + k3)))*10e-3;
+		else printf("infinite error in V");
+	}
+	else printf("infinite error in V\n");
+	clrscr();
+	printf("w=%f\n",w);
+    printf("u=%f\n",u);
+    printf("v=%f\n",v);
+}
