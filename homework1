@@ -1,10 +1,9 @@
 /* Вариант 21 */ 
-#include <stdio.h> 
-#include <stdlib.h>   
+#include <stdio.h>   
 void clrscr(void)
 {
-	char a[80]; printf("\033[2J");
-	printf("\033[0;0f"); 
+	char a[80]; printf("\033[2J"); /* Clear the entire screen. */
+	printf("\033[0;0f"); /* Move cursor to the top left hand corner */
 }
 
 int main() 
@@ -16,33 +15,40 @@ int main()
 	printf("k3="); scanf("%d",&k3);
 	printf("m="); scanf("%f",&MM);
 	printf("n="); scanf("%f",&NN);
-	system("cls");
+	clrscr();
 	if (k3+k2 != 0)
 	{
 		if (k2 != 0)
+		{
 			w=6/7 + k1/(k2+k3) + (MM + NN)/k2;
+			printf("w=%f\n",w);
+		}
 		else
-			printf("infinite error in W\n");
+			printf("infinity error in W\n");
 	}
 	else
-		printf("infinite error in W\n");
+		printf("infinity error in W\n");
 	if (k3 != 0)
 	{
 		if (MM + k2/k3 != 0)
+		{
 			u=(10e-2 + 1/k3)/10e2 + (MM + k1/k3)/(MM + k2/k3);
-		else printf("infinite error in U");
+			printf("u=%f\n",u);
+		}
+		else printf("infinity error in U\n");
 	}
 	else
-		printf("infinite error in U");
+		printf("infinity error in U\n");
 	if (k3 != -13)
 	{
 		if (k3 != -20)
+		{
 			v=(((13-k1)/(13+k3))-((10e-7 +k1)/(20 + k3)))*10e-3;
-		else printf("infinite error in V");
+			printf("v=%f\n",v);
+		}
+		else printf("infinite error in V\n");
 	}
 	else printf("infinite error in V\n");
-	clrscr();
-	printf("w=%f\n",w);
-    printf("u=%f\n",u);
-    printf("v=%f\n",v);
+	
+
 }
