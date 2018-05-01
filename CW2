@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+	printf("метод деления пополам для функции sin(ax)-b=0\nвведите a и b: ");
+	double a,b,e,c,Fa,Fb;
+	int i=0, N=10000; //максимальное количество итераций цикла
+	scanf("%f %f",&a,&b);
+	printf("Введите заданный отрезок e :"); 
+	scanf("%f",&e);
+	Fa=sin(a*a)-b;
+	Fb=sin(b*a)-b;
+	//if(((Fa>0)&&(Fb>0))||((Fa<0)&&(Fb<0)))
+		//printf("error");
+	//else
+	{
+		while((b-a>e)&&(i<=N))
+		{	
+			c= (a+b)/2.0;
+			if((sin(a*c)-b)<0	)	
+				a=c;
+			else	
+				b=c;
+			i++;
+		}	
+		printf("x = %f",c);
+	}
+}
+
+
