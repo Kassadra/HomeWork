@@ -39,7 +39,7 @@ int main()
 	int N=1;
 	//total = sqrt((e * p)/2.0);
 	printf("input accuracy = "); scanf("%f", &accuracy);
-	while (abs(total - result) > accuracy)
+	while (fabs(total - result) > accuracy)
 	{
 		total=result;
 		result = summ(N) + dell(N);
