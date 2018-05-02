@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+	int RAM[100]={0}, accum=0, comand, adress, input;
+	printf("start simulation...\nWelcome to PC simulation!\nTo start enter command.\n");
+	scanf("%d",&input);
+	while ((input>4399)||(input<1000))
+		{
+			printf("unknown command\nEnter next command:");
+			scanf("%d",&input);
+		}
+		
+	comand=input/100;
+	adress=input%100;
+	while(comand != 43)
+		{
+			switch(comand)
+			{
+				case 10:
+					printf("enter number");
+					scanf("%d",&RAM[adress]);
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				case 11:
+					printf("%d\n",RAM[adress]);
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				case 12:
+					printf("%d\n", accum);
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				case 20:
+					accum=RAM[adress];
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				case 21:
+					RAM[adress]=accum;
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				case 30:
+					accum+=RAM[adress];
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				case 31:
+					accum-=RAM[adress];
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				case 32:
+					accum/=RAM[adress];
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				case 33:
+					accum*=RAM[adress];
+					printf("Completed!\n");
+					printf("Enter next command:");
+					scanf("%d",&input);					
+					comand=input/100;
+					adress=input%100;
+					break;
+				default:
+					printf("unknown command\n");
+					break;
+			}
+		}
+	
+}
