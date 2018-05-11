@@ -15,8 +15,8 @@ double summ(int N)
 	return res2;
 }
 
-double dell(double);
-double dell(double N)
+double dell(int);
+double dell(int N)
 {
 	double a=1.0;
 	a=N/a+1;
@@ -36,8 +36,8 @@ double dell(double N)
 int main()
 {
 	double e = exp(1.0), p = acos(-1.0), result=0, accuracy,total;
-	double N=1;
-	printf("input accuracy = "); scanf("%f", &accuracy);
+	int N=1;
+	printf("input accuracy = "); scanf("%lf", &accuracy);
 	total = sqrt((e * p)/2.0);
 	do
 	{
@@ -45,6 +45,6 @@ int main()
 		N+=1;
 	}
 	while (fabs(total - result) > accuracy);
-	printf("total  = %f\nresult = %f\niterations = %f",total, result, N);
+	printf("total  = %f\nresult = %f\niterations = %d\n",total, result, N);
 	return 0;
 	}
