@@ -4,7 +4,7 @@
 int main()
 {
 	int RAM[100]={0}, accum=0, comand, adress, input;
-	printf("start simulation...\nWelcome to PC simulation!\nTo start enter command.\n");
+	printf("start simulation...\nWelcome to OS simulation!\nTo start enter command.\n");
 	scanf("%d",&input);
 	while ((input>4399)||(input<1000))
 		{
@@ -90,6 +90,54 @@ int main()
 					scanf("%d",&input);					
 					comand=input/100;
 					adress=input%100;
+					break;
+				case 40: 
+					if (RAM[adress]/100 == 40)
+						printf("error\n);
+					else
+					{
+						input = RAM[adress];
+						comand=input/100;
+						adress=input%100;
+					}
+					break;
+				case 41:
+					if (accum<0)
+						if (RAM[adress]/100 == 40)
+							printf("error\n);
+						else
+					{
+						input = RAM[adress];
+						comand=input/100;
+						adress=input%100;
+					}
+					else	
+					{
+						printf("Condition not met\n");
+						printf("Enter next command:");
+						scanf("%d",&input);					
+						comand=input/100;
+						adress=input%100;
+					}
+					break;
+				case 42:
+					if (accum==0)
+							if (RAM[adress]/100 == 40)
+								printf("error\n);
+							else
+						{
+							input = RAM[adress];
+							comand=input/100;
+							adress=input%100;
+						}
+					else
+					{
+						printf("Condition not met\n");
+						printf("Enter next command:");
+						scanf("%d",&input);					
+						comand=input/100;
+						adress=input%100;
+					}
 					break;
 				default:
 					printf("unknown command\n");
