@@ -1,22 +1,17 @@
  #include <stdio.h>
  #include <math.h>
- 
- double f(double, double, double);
+  double f(double, double, double);
  double f(double a,double b,double x)
  { 
-     return sin(a*x)-b;
+     return a*x*x+b;
  }
- 
 double df(double, double);
 double df(double a, double x)
 {
-	return a*cos(a*x);
+	return 2*a*x;
 } 
-
-
- int main() 
-{
-	printf("использование метода бисекции для уравнения sin(a*x)-b=0\n");
+int main() 
+{	
     double a,b,c,e,k1,k2,x0,x;
 	int N=1;
 	printf("введите a и b: ");
@@ -56,10 +51,12 @@ double df(double a, double x)
 		else
 			c=b;
 	}
+	printf("использование метода бисекции для уравнения sin(a*x)-b=0\n");
 	if(N<200)
-		printf ("%f\n",c); 
+		printf ("x = %f, N = %d\n",c,N); 
 	else
 		printf("не достигнута точность за 200 итераций, ошибка\n");
+	N=1;
 	printf ("использование метода касательных для уравнения sin(a*x)-b=0\n");
 	x=x0-f(k1,k2,x0)/df(k1,x0); 
     while((fabs(x-x0)>e)&&(N<200))
@@ -69,9 +66,8 @@ double df(double a, double x)
         x=x-f(k1,k2,x)/df(k1,x);
     }
 	if(N<200)
-		printf("x = %lf\n", x);
+		printf("x = %lf, N = %d\n", x, N);
 	else
 		printf("не достигнута точность за 200 итераций, ошибка\n");
     return 0;
-
 }
