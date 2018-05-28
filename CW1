@@ -1,50 +1,46 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-double summ(int); 	
-double summ(int N)
+#include <stdio.h> //поделючение библиотеки
+#include <stdlib.h> //поделючение библиотеки
+#include <math.h> //поделючение библиотеки
+double summ(int, int *); 	//прототип функции
+double summ(int N, int *summN)	//функция по нахождению суммы ряда
 {
-	int i;
-	double res1=1, res2=0;
-	for(i=1;i<=N;i+=2)	
+	int i; // объявление счетчика
+	*summN = 1; // разыменовываем переменную-указатель и изменяем ее значение
+	double res1=1, res2=0; //объявление пременных рузультата
+	for(i=1;i<=N;i+=2)	// начало цикла
 	{
-		res1 = 1.0/i * res1;
-		res2 += res1;
+		res1 = 1.0/i * res1; //нахожение нового члена ряда
+		res2 += res1; // прибавление нового члена ряда к предыдущим
+		*summN+=1; // изменение счетчика на 1
 	}
-	return res2;
+	return res2; //вохврат значения переменной res2
 }
-
-double dell(int);
-double dell(int N)
+double dell(int); //прототип функции
+double dell(int N) //функция по нахождению значения цепной дроби
 {
-	double a=1.0;
-	a=N/a+1;
-	N-=1;
-	while (N>=1)
-	{
-		a=N/a+1;
-		N-=1;
-	}
-	a=1.0/a;
-	return a;
+	double a=1.0; //объявление переменной значения
+	a=N/a+1; //вычисление первого значения
+	N-=1; //уменьшение счетчика на 1
+	while (N>=1) // начало цикла
+	{ 
+		a=N/a+1; // вычисление значения
+		N-=1; //уменьшение счетчика
+	}	
+	a=1.0/a;	//вычисление финального значения 
+	return a; //возврат значения
 }
-
-	
-		
-
-int main()
+int main()	//объявление главной функции
 {
-	double e = exp(1.0), p = acos(-1.0), result=0, accuracy,total;
-	int N=1;
-	printf("input accuracy = "); scanf("%lf", &accuracy);
-	total = sqrt((e * p)/2.0);
-	do
+	double result=0, accuracy,total;	//объявление пременных
+	int N=1, summN;	// объявление пременных счетчика
+	printf("input accuracy = "); scanf("%lf", &accuracy); //вывод строки на экран
+	do //начало цикла "do - while"
 	{
-		result = summ(N) + dell(N);
-		N+=1;
+		total = result; // сохранение предыдущего результата
+		result = summ(N, &summN) + dell(N); // нахождение результата путем суммирования реузльтатов функциии
+		N+=1;	//увеличение счетчика
 	}
-	while (fabs(total - result) > accuracy);
-	printf("total  = %f\nresult = %f\niterations = %d\n",total, result, N);
-	return 0;
-	}
+	while (fabs(total - result) > accuracy); //условие выхода из цикла
+	printf("total  = %f\nresult = %f\niterations of dell = %d\niterations of summ = %d\n",total, result, N, summN); //вывод строки на экран
+	return 0; //возврат 0
+}
